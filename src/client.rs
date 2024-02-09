@@ -740,8 +740,9 @@ where
             ..Default::default()
         };
         let res = self.do_registration(&registration).await?;
-        if !res.status().is_success() {
-            return Err(anyhow::anyhow!("Failed to register with unleash API server").into());
+        let status = res.status();
+        if !status.is_success() {
+            return Err(anyhow::anyhow!("Failed to register with unleash API server: {status}").into());
         }
         Ok(())
     }
