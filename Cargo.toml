@@ -3,7 +3,7 @@ authors = ["Robert Collins <robert.collins@cognite.com>"]
 categories = ["api-bindings", "web-programming"]
 default-run = "dump-features"
 description = "An https://unleash.github.io/ API client"
-edition = "2018"
+edition = "2021"
 homepage = "https://github.com/cognitedata/unleash-client-rust/"
 keywords = ["continualdeployment"]
 license = "Apache-2.0"
@@ -11,6 +11,7 @@ name = "unleash-api-client"
 readme = "README.md"
 repository = "https://github.com/cognitedata/unleash-client-rust/"
 version = "0.6.1-alpha.1"
+
 [badges]
 [badges.maintenance]
 status = "experimental"
@@ -47,7 +48,7 @@ version = "0.4.19"
 [dependencies.reqwest]
 default-features = false
 features = ["json"]
-version = "0.11.10"
+version = "0.12"
 optional = true
 
 [dependencies.serde]
@@ -67,7 +68,7 @@ features = ["rt-multi-thread", "macros", "time"]
 version = "1.12.0"
 
 [features]
-default = ["surf-client"]
+default = ["reqwest-client-rustls"]
 reqwest-client = ["reqwest", "reqwest/default-tls"]
 # For users that don't want to depend on OpenSSL.
 reqwest-client-rustls = ["reqwest", "reqwest/rustls-tls"]
